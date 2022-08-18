@@ -24,5 +24,5 @@ const Map = () => {
         ></GoogleMapReact>
     </div>
   );
-}
+}   
 export default Map;
