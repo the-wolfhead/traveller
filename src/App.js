@@ -9,16 +9,21 @@ import {getPlacesData } from './api';
 function App() {
   const [places, setPlaces] = useState([]);
 
-  const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0});
+  const [coordinates, setCoordinates] = useState({});
     const [bounds, setBounds] = useState(null);
 
+  useEffect(()=>{
+    navigator.geolocation.getCurrentposition(({ cords: {latitude, longitude}}) => {
+      setCoordinates({ lat: latitude, lng: longitude});
+    })
+  }, []);
   useEffect(() => {
     getPlacesData()
       .then((datat) => {
         console.log(data);
-        setPlaces(data)
+        setPlaces(data);
       })
-  })
+  }, [coordinates, bounds]);
   return (
     <>
         <CssBaseline />
