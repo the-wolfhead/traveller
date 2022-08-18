@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function PlaceDetails() {
   return (
-    <div>PlaceDetails</div>
+    <h1>{place.name}</h1>
   )
 }
